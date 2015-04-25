@@ -4,8 +4,8 @@ var app = angular.module('clinikapp');
 function mapaController($scope,  $mdBottomSheet, $api){
 	$scope.map = { center: { latitude: 4.6093879, longitude: -74 }, zoom: 8 };
 	
-	$api.centers().get().success(function(rs){
-   		$scope.centers = rs.data || [];
+	$api.eps().get().success(function(rs){
+   		$scope.entities = rs.data || [];
     })
 
 	$scope.openBottomSheet = function() {

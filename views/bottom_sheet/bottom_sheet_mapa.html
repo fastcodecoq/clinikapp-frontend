@@ -12,17 +12,19 @@
 	<div class="column" >
 		<md-list>
 			<md-list-item layout-fill layout-padding>	
-				<md-autocomplete 
+				<md-autocomplete
+					ng-model="entidad" 
 					placeholder="Entidad de Salud"
 					md-selected-item="selectedItem" 
 					md-search-text="searchText" 
-					md-items="item in getMatches(searchText)" 
+					md-items="value in entities" 
 					md-item-text="item.display">
 			  		<span md-highlight-text="searchText">{{item.display}}</span>
 				</md-autocomplete>			
 			</md-list-item>	
 			<md-list-item layout-fill layout-padding>	
 				<md-autocomplete
+					ng-model="especialidad"
 					placeholder="Especialidad" 
 					md-selected-item="selectedItem" 
 					md-search-text="searchText" 

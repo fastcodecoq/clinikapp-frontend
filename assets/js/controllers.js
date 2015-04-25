@@ -52,15 +52,20 @@ function mainCtrl($scope, $mdDialog, $mdSidenav, $api){
     };
 
 
-   $api
+      $api
    .centers()
    .get()
    .success(function(rs){
    	   console.log(rs);
+   	   $scope.values = rs.data;
    })
 
 
+
 }
+
+	
+
 
 
 function entityCtrlBase($scope, $rootScope, $stateParams){

@@ -3,7 +3,7 @@
 var app = angular.module('clinikapp');
 
 
-function mainCtrl($scope, $mdDialog, $mdSidenav){
+function mainCtrl($scope, $mdDialog, $mdSidenav, $api){
 
 
 		 if(window.history.length > 0)
@@ -50,6 +50,14 @@ function mainCtrl($scope, $mdDialog, $mdSidenav){
 		    );
 
     };
+
+
+   $api
+   .centers()
+   .get()
+   .success(function(rs){
+   	   console.log(rs);
+   })
 
 
 }

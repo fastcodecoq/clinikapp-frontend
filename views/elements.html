@@ -1,14 +1,14 @@
 
-      <md-list>
-      <md-list-item class="md-3-line" ng-swipe-left="showAlertLeft()" ng-click="showAlert()" ng-repeat="item in todos">
-        <img width="40" ng-src="{{item.face}}" alt="{{item.who}}" class="md-avatar" >
-        <div class="md-tile-content">
-          <h3>{{item.what}}</h3>
-          <h4>{{item.who}}</h4>
-          <p>
-            {{item.notes}}
-          </p>
-        </div>
-        <md-divider inset></md-divider>
-      </md-list-item>
+
+      <md-list >
+
+
+     <md-list-item ng-click="showAlert()" ng-repeat="item in todos" >
+    <img alt="{{ item.what }}" ng-src="assets/img/logo.png" class="md-avatar" />
+    <p>{{ item.what }}</p>
+    <md-button class="md-icon-button">
+          <md-icon md-svg-icon="assets/icons/more_vert.svg"></md-icon>    
+      </md-button>
+     </md-list-item> 
+      
     </md-list>

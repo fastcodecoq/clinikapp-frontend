@@ -9,7 +9,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('elements', {
       url: "/elements",
-      templateUrl: "views/elements.html"
+      templateUrl: "views/elements.html",
+      controller : mainCtrl
     })    
     ;
 

@@ -1,65 +1,65 @@
 // controllers 
-
 var app = angular.module('clinikapp');
 
+function mapaController($scope,  $mdBottomSheet){
 
-function mainCtrl($scope, $mdDialog, $mdSidenav){
+	$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
 
+	$scope.openBottomSheet = function() {
+	    $mdBottomSheet.show({
+	    	templateUrl: 'views/bottom_sheet/bottom_sheet_mapa.html'
+	    });
+	}}
 
-		 if(window.history.length > 0)
-		 	 $scope.back = true;
-  		 
-  		 $scope.todos = [];
+	function mainCtrl($scope, $mdDialog, $mdSidenav){
 
-  		 for(i = 0; i < 6; i++)
-  		 	$scope.todos.push({
-			    face: 'assets/img/logo.png',
-			    what: 'Brunch this weekend?',
-			    who: 'Min Li Chan',
-			    notes: "I'll be in your neighborhood doing errands."
-  			});
+			 if(window.history.length > 0)
+			 	 $scope.back = true;
+	  		 
+	  		 $scope.todos = [];
 
+	  		 for(i = 0; i < 6; i++)
+	  		 	$scope.todos.push({
+				    face: 'assets/img/logo.png',
+				    what: 'Brunch this weekend?',
+				    who: 'Min Li Chan',
+				    notes: "I'll be in your neighborhood doing errands."
+	  			});
 
-	      $scope.menu_right = function(){
-	        	$mdSidenav("right").toggle();
-	      }
+		      $scope.menu_right = function(){
+		        	$mdSidenav("right").toggle();
+		      }
 
-		  $scope.showAlert = function(ev) {
-		   
-		    $mdDialog.show(
-		      $mdDialog.alert()
-		        .title('Alerta con titulo')
-		        .content('Especificar descripción aquí.')
-		        .ariaLabel('Alerta demo')
-		        .ok('Aceptar')
-		        .targetEvent(ev)
-		    );
+			  $scope.showAlert = function(ev) {
+			   
+			    $mdDialog.show(
+			      $mdDialog.alert()
+			        .title('Alerta con titulo')
+			        .content('Especificar descripción aquí.')
+			        .ariaLabel('Alerta demo')
+			        .ok('Aceptar')
+			        .targetEvent(ev)
+			    );
 
-       };
+	       };
 
+	     $scope.showAlertLeft = function(ev) {
+			   
+			    $mdDialog.show(
+			      $mdDialog.alert()
+			        .title('Swipe')
+			        .content('Haz hecho swipe left.')
+			        .ariaLabel('Swipe')
+			        .ok('Aceptar')
+			        .targetEvent(ev)
+			    );
 
-     $scope.showAlertLeft = function(ev) {
-		   
-		    $mdDialog.show(
-		      $mdDialog.alert()
-		        .title('Swipe')
-		        .content('Haz hecho swipe left.')
-		        .ariaLabel('Swipe')
-		        .ok('Aceptar')
-		        .targetEvent(ev)
-		    );
+	    };
 
-    };
-
-
-}
+	}
 
 
 function entityCtrlBase($scope, $rootScope, $stateParams){
-
-   
-   //basic Methods
-
 
    $scope.load = function(id){
 
@@ -67,13 +67,11 @@ function entityCtrlBase($scope, $rootScope, $stateParams){
 
    }
 
-
    $scope.create = function(data){
 
    	  var data = data || $scope;
 
    }
-
 
    $scope.update = function(id){
 
@@ -82,21 +80,13 @@ function entityCtrlBase($scope, $rootScope, $stateParams){
 
    }
 
-
    $scope.delete = function(id){
 
    	  var id = id || $scope.id;
 
 
    }
-
-
-   //other methods 
-
-
 }
-
-
 
 app
 .controller('mainCtrl', mainCtrl)

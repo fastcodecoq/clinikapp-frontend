@@ -5,7 +5,10 @@
 
      <md-list-item ng-click="showAlert()" ng-repeat="item in todos" >
     <img alt="{{ item.what }}" ng-src="assets/img/logo.png" class="md-avatar" />
-    <p>{{ item.what }}</p>
+      <div class="md-list-item-text">
+          <h3>{{ item.who }}</h3>          
+          <p>{{ item.notes }}</p>
+        </div>
     <md-button class="md-icon-button">
           <md-icon md-svg-icon="assets/icons/more_vert.svg"></md-icon>    
       </md-button>

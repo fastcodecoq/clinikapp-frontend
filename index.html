@@ -1,0 +1,29 @@
+<html lang="en" ng-app="clinikapp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/libs/angular-material/angular-material.css">
+  </head>
+  <body layout="column" >
+    <div ng-controller="mainCtrl">
+
+    <div ng-include="'views/common/header.html'"></div>  
+
+  <md-content layout-padding class="md-default-theme" ui-view></md-content>
+
+
+   <div ng-include="'views/common/sidebar.html'"></div>
+
+  </div>
+    <!-- Angular Material Dependencies -->
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/angular-animate/angular-animate.min.js"></script>
+    <script src="assets/libs/ui-router/release/angular-ui-router.min.js"></script>    
+    <script src="assets/libs/angular-aria/angular-aria.min.js"></script>
+    <script src="assets/libs/angular-material/angular-material.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/api_service.js"></script>
+    <script src="assets/js/controllers.js"></script>
+
+
+  </body>
+</html>

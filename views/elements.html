@@ -2,6 +2,7 @@
 
       <md-list >
 
+<<<<<<< HEAD
 
      <md-list-item ng-click="showAlert()" ng-repeat="item in todos" >
     <img alt="{{ item.what }}" ng-src="assets/img/logo.png" class="md-avatar" />
@@ -12,6 +13,19 @@
     <md-button class="md-icon-button">
           <md-icon md-svg-icon="assets/icons/more_vert.svg"></md-icon>    
       </md-button>
+=======
+     <md-list-item class="md-3-line" ng-click="showAlert()" ng-repeat="value in values track by $index" >
+    <img  ng-src="assets/img/logo.png" class="md-avatar" />
+      <div class="md-list-item-text">
+          <h3>{{ value.name }}</h3>          
+          <p style="white-space: normal;">{{ value.description }}</p>
+        </div>
+    <md-button class="md-icon-button" ng-click="menu_right()">
+          <md-icon md-svg-icon="assets/icons/more_vert.svg"></md-icon>    
+      </md-button>
+      <br>
+       <md-divider inset></md-divider>
+>>>>>>> ceac24fcdf41a29de3be745ab665cf23458bd372
      </md-list-item> 
       
     </md-list>

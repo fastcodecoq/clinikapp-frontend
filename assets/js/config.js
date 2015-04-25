@@ -1,6 +1,7 @@
 var app = angular.module('clinikapp', ['ngMaterial', 'ui.router', 'uiGmapgoogle-maps']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
+<<<<<<< HEAD
   	$stateProvider.state('elements', {
   		url: "/elements",
       	templateUrl: "views/elements.html"
@@ -18,3 +19,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         });
 }]);
+=======
+
+
+  $stateProvider
+    .state('elements', {
+      url: "/elements",
+      templateUrl: "views/elements.html",
+      controller : mainCtrl
+    })    
+    ;
+
+  $urlRouterProvider.otherwise("/elements");
+
+
+});
+>>>>>>> ceac24fcdf41a29de3be745ab665cf23458bd372

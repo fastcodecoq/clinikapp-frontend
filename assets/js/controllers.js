@@ -52,13 +52,7 @@ function mainCtrl($scope, $mdDialog, $mdSidenav, $api){
     };
 
 
-      $api
-   .centers()
-   .get()
-   .success(function(rs){
-   	   console.log(rs);
-   	   $scope.values = rs.data;
-   })
+    
 
 
 
@@ -111,7 +105,37 @@ function entityCtrlBase($scope, $rootScope, $stateParams){
 
 
 
+
+
+function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api) {
+  
+
+
+  $scope.centerBottomSheet = function() {  	
+    $mdBottomSheet.show({
+      templateUrl: 'views/bottom_sheet/center.html'
+    });
+  };
+
+
+   $scope.load = function(){
+
+   	      $api
+		   .centers()
+		   .get()
+		   .success(function(rs){
+		   	   console.log(rs);
+		   	   $scope.values = rs.data;
+		   })
+
+   }
+
+}
+
 app
 .controller('mainCtrl', mainCtrl)
 .controller('entityCtrlBase', entityCtrlBase)
 ;
+
+
+

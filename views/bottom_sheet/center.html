@@ -1,0 +1,28 @@
+<md-bottom-sheet class="md-list md-has-header">
+  <md-subheader>Opciones</md-subheader>
+  <md-list>
+    
+    <md-list-item >
+      <md-button class="md-list-item-content" ng-click="listItemClick($index)">
+        <md-icon md-svg-src="{{item.icon}}"></md-icon>
+        <span class="md-inline-list-icon-label">Solicitar Cita</span>
+      </md-button>
+    </md-list-item>
+
+    <md-list-item >
+      <md-button class="md-list-item-content" ng-click="listItemClick($index)">
+        <md-icon md-svg-src="{{item.icon}}"></md-icon>
+        <span class="md-inline-list-icon-label">Llamar</span>
+      </md-button>
+    </md-list-item>
+
+
+    <md-list-item >
+      <md-button class="md-list-item-content" ng-click="listItemClick($index)">
+        <md-icon md-svg-src="{{item.icon}}"></md-icon>
+        <span class="md-inline-list-icon-label">Ubicar en Mapa</span>
+      </md-button>
+    </md-list-item>
+
+  </md-list>
+</md-bottom-sheet>

@@ -15,6 +15,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
  	 $urlRouterProvider.otherwise("/elements");
 }, ['uiGmapGoogleMapApi', function(GoogleMapApiProviders){
         GoogleMapApiProvider.configure({
-            colombia: true
+
         });
 }]);

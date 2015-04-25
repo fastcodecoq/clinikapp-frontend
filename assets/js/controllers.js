@@ -3,7 +3,7 @@ var app = angular.module('clinikapp');
 
 function mapaController($scope,  $mdBottomSheet){
 
-	$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+	$scope.map = { center: { latitude: 4.6093879, longitude: -74 }, zoom: 8 };
 
 	$scope.openBottomSheet = function() {
 	    $mdBottomSheet.show({

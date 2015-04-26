@@ -82,7 +82,7 @@ function API(){
 		 	},
 		 	{
 		 	_id : "lkmklmsad8981271",
-		 	name:'clinica mcomfenalco',		 			 
+		 	name:'clinica comfenalco',		 			 
 		 	description : 'En la Clinica Comfenalco, ofrecemos el mejor servicio de UCI en colombia',
 		 	tel : 3017687,
 		 	uci:true,

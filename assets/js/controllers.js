@@ -15,7 +15,7 @@ function mapaController($scope,  $mdBottomSheet, $api){
 	}
 }
 
-function mainCtrl($scope, $mdDialog, $mdSidenav, $api){
+function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia){
 
 			 if(window.history.length > 0)
 			 	 $scope.back = true;

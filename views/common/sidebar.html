@@ -1,29 +1,49 @@
-<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-      <md-toolbar class="md-theme-light">
-        <h1 class="md-toolbar-tools">Menú</h1>
+<md-sidenav class="md-sidenav-right " md-component-id="right" md-is-locked-open="$mdMedia('gt-sm')">
+<md-toolbar  hide-gt-sm class="md-theme-light">
+        <h1 class="md-toolbar-tools">Mi Clinikapp</h1>
       </md-toolbar>
       <md-content  layout-padding>
      
        <md-list>
-          <md-list-item>
+          <md-item layout="row">
+           <md-item-content flex>
                <md-button>
                <ng-md-icon icon="layers" style="fill:gray" ></ng-md-icon>                  
                <span>
                Mis Citas
                </span>
                </md-button>
-          </md-list-item>
-            <md-list-item>
+               </md-item-content>
+          </md-item>
+            <md-item layout="row" >
+           <md-item-content flex>
+
                <md-button>
                <ng-md-icon icon="place" style="fill:gray" ></ng-md-icon>                                 
                <span>Buscar en Mapa</span>
                </md-button>
-          </md-list-item>
-          <md-list-item>
+               </md-item-content>
+          </md-item>   
+
+           <md-item layout="row" >
+           <md-item-content flex>
+
+               <md-button>
+               <ng-md-icon icon="favorite" style="fill:gray" ></ng-md-icon>                                 
+               <span>Mis Favoritos</span>
+               </md-button>
+               </md-item-content>
+          </md-item>   
+
+          <md-item layout="row" hide-gt-sm>
+           <md-item-content flex>
+                                                
+
            <md-button ng-click="menu_right()" class="md-primary">
              Cerrar
            </md-button>
-          </md-list-item>
+           </md-item-content>
+          </md-item>
        </md-list>
 
        

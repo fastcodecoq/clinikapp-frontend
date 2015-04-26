@@ -1,6 +1,10 @@
 <html lang="en" ng-app="clinikapp">
   <head>
     <meta charset="utf-8">
+     <meta name="HandheldFriendly" content="True">
+     <meta name="MobileOptimized" content="320">
+     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/> 
+     <meta http-equiv="cleartype" content="on">
     <link rel="stylesheet" href="assets/libs/angular-material/angular-material.css">
     <link rel="stylesheet/less"  href="assets/less/default.less">
     <script src="assets/libs/less/less.js"></script>    
@@ -10,11 +14,19 @@
 
     <div ng-include="'views/common/header.html'"></div>  
 
+<div layout="row" flex class="content-wrapper">
 
-  <md-content layout-padding class="md-default-theme" style="height: 87%;" ui-view></md-content>
+   <div layout="column" flex>
+    <md-content layout-padding class="md-default-theme" style="height: 87%;" ui-view></md-content>
+    </div>
 
+   <div layout="column">
 
    <div ng-include="'views/common/sidebar.html'"></div>
+
+</div>
+
+   </div>
 
   </div>
     <!-- Angular Material Dependencies -->

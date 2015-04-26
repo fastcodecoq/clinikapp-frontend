@@ -11,6 +11,13 @@
 
     <md-list-item >
       <md-button class="md-list-item-content" ng-click="listItemClick($index)">
+        <ng-md-icon icon="directions_bus" style="fill:gray" ></ng-md-icon>        
+        <span class="md-inline-list-icon-label">Solicitar ambulancia a mi ubicación</span>
+      </md-button>
+    </md-list-item>
+
+    <md-list-item >
+      <md-button class="md-list-item-content" ng-click="listItemClick($index)">
         <ng-md-icon icon="call" style="fill:gray" ></ng-md-icon>
         <span class="md-inline-list-icon-label">Llamar</span>
       </md-button>
@@ -23,6 +30,14 @@
         <span class="md-inline-list-icon-label">Ubicar en Mapa</span>
       </md-button>
     </md-list-item>
+
+    <md-list-item >
+      <md-button class="md-list-item-content" ng-click="listItemClick($index)">
+        <ng-md-icon icon="favorite" style="fill:gray" ></ng-md-icon>        
+        <span class="md-inline-list-icon-label">Marcar como favorito</span>
+      </md-button>
+    </md-list-item>
+
 <br>
   </md-list>
 </md-bottom-sheet>

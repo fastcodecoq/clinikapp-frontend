@@ -3,14 +3,14 @@
       <md-list ng-init="load()" >
 
 
-     <md-list-item class="md-3-line"  ng-repeat="value in values track by $index" >
+     <md-list-item class="md-3-line" md-swipe-right="showAlert()"  ng-repeat="value in values track by $index" >
 
       <img  ng-src="{{ value.image || 'assets/img/logo.png' }}" class="md-avatar" />
       
-      <div class="md-list-item-text" ng-click="showAlert($ev)" >
+      <div class="md-list-item-text" ui-sref="mapa" >
           
           <h3>{{ value.name }}</h3>          
-          <p style="white-space: normal;">{{ value.description }}</p>
+          <p class="p-aligned">{{ value.description }}</p>
         </div>
     <md-button class="md-icon-button" ng-click="centerBottomSheet($ev)" style="position: relative;
 left: 25px;">

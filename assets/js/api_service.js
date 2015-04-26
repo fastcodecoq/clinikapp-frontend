@@ -20,8 +20,8 @@ function API(){
 		 	var centers = [
 		 	{
 		    _id : '97162182912a8s7as8a9',		    
-		 	name:'clinica de montería',		 	
-		 	description : 'Clinica de Montería, brindamos la mejor atencion en el sector.',
+		 	name:'clínica de montería',		 	
+		 	description : 'clínica de Montería, brindamos la mejor atencion en el sector.',
 		 	tel : 3017681,
 		 	uci:true,
 		 	urgencias:true,
@@ -36,8 +36,8 @@ function API(){
 		 	},
 		 	{
 		    _id : '97162182912aohh123',		 		
-		 	name:'clinica de la mujer',		 		 
-		 	description : 'En la Clinica de la Mujer, contamos con los mejores equipos en radiología a nivel de la costa.',
+		 	name:'clínica de la mujer',		 		 
+		 	description : 'En la clínica de la Mujer, contamos con los mejores equipos en radiología a nivel de la costa.',
 		 	tel : 3017682,
 		 	uci:false,
 		 	urgencias:true,
@@ -52,8 +52,8 @@ function API(){
 		 	},
 		 	{
 		    _id : 'kasja812912a8s7as8a9',		 		
-		 	name:'clinica soma',		 	 
-		 	description : 'En la soma, contamos con los mejores especialistas en pediatría de la costa norte.',
+		 	name:'clínica soma',		 	 
+		 	description : 'En la Clínica Soma, contamos con los mejores especialistas en pediatría de la costa norte.',
 		 	tel : 3017683,
 		 	image : 'assets/img/clinicas/soma.gif',		 			 	
 		 	doctors : [
@@ -66,8 +66,8 @@ function API(){
 		 	},
 		 	{
 		    _id : '0812klasias712',		 		
-		 	name:'clinica de occidente',		 		 
-		 	description : 'En la clinica de Occidente, contamos con la mejor sala de urgencias',
+		 	name:'clínica de occidente',		 		 
+		 	description : 'En la clínica de Occidente, contamos con la mejor sala de urgencias',
 		 	uci:false,
 		 	urgencias:false,
 		 	tel : 3017685,
@@ -82,8 +82,8 @@ function API(){
 		 	},
 		 	{
 		 	_id : "lkmklmsad8981271",
-		 	name:'clinica comfenalco',		 			 
-		 	description : 'En la Clinica Comfenalco, ofrecemos el mejor servicio de UCI en colombia',
+		 	name:'clínica comfenalco',		 			 
+		 	description : 'En la clínica Comfenalco, ofrecemos el mejor servicio de UCI en colombia',
 		 	tel : 3017687,
 		 	uci:true,
 		 	urgencias:false,

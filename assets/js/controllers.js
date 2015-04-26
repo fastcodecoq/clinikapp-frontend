@@ -37,13 +37,26 @@ function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia){
 			  	$scope.showAlert = function(ev) {
 			   
 			    $mdDialog.show(
-			      $mdDialog.alert()
-			        .title('Alerta con titulo')
-			        .content('Especificar descripción aquí.')
-			        .ariaLabel('Alerta demo')
-			        .ok('Aceptar')
+			      $mdDialog.confirm()
+			        .title('Solicitar Ambulancia')
+			        .content('Desea solicitar una ambulancia al centro de salud mas cercano?')
+			        .ariaLabel('Solicitar')
+			        .ok('Aceptar')	
+			        .cancel('Cancelar')		        
 			        .targetEvent(ev)
-			    );
+			    )
+			    .then(function(){
+			    	$mdDialog.show(
+			    		$mdDialog.alert()
+			    		.title('Ambulancia Solicitada.')
+			    		.content('Se ha solicitado una ambulancia a su ubicación. Por favor mantenga su dispositivo móvil cerca mientras llega la ayuda médica.')
+			    		.ariaLabel('solicitada')
+			    		.ok('Ok')
+			    		)
+			    }, function(){
+			        //
+			    })
+			    ;
 
 	       		};
 

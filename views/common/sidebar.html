@@ -3,13 +3,15 @@
         <h1 class="md-toolbar-tools">Menú</h1>
       </md-toolbar>
       <md-content  layout-padding>
-        <form>
-          <md-input-container>
-            <label for="testInput">Buscar</label>
-            <input type="text" id="testInput"
-                   ng-model="data" md-sidenav-focus>
-          </md-input-container>
-        </form>
+     
+       <md-list>
+          <md-list-item>
+               <md-button>Mis Citas</md-button>
+          </md-list-item>
+            <md-list-item>
+               <md-button>Buscar en Mapa</md-button>
+          </md-list-item>
+       </md-list>
 
         <md-button ng-click="menu_right()" class="md-primary">
           Cerrar

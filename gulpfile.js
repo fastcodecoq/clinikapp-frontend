@@ -47,7 +47,7 @@ gulp.task('watch', function() {
    	gulp.watch('assets/css/**/*.css', ['css']),
    	gulp.watch('assets/js/**/*.js', ['js']),
    	gulp.watch(['*.html'], ['html'])
-   	gulp.watch(['views/**/*.html'], ['views']);
+   	gulp.watch('views/**/*.html', ['views']);
 });
 
 /* LocalServer */

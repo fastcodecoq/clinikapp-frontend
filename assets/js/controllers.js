@@ -15,11 +15,11 @@ function mapaController($scope,  $mdBottomSheet, $api){
 	}
 }
 
-function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia, $rootScope){
+function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia, $rootScope, $mdBottomSheet){
 
 
 			 $scope.$watch('search', function(){
-			 	alert('hey')
+			 	console.log('watching')
 			 })
 
 			 if(window.history.length > 0)
@@ -64,6 +64,8 @@ function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia, $rootScope){
 			    		)
 			    	.then(function(){
 			    		  delete $rootScope.center;
+		        		  $mdSidenav("right").close();
+
 			    	})
 
 			    }, function(){
@@ -72,6 +74,9 @@ function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia, $rootScope){
 			    		  delete $rootScope.center;
 			    })
 			    ;
+
+    	$mdBottomSheet.hide();
+
 
 	       		};	   
 
@@ -133,18 +138,22 @@ function entityCtrlBase($scope, $rootScope, $stateParams){
 
 function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $localStorage) {
   
-
+ 
 
   $scope.centerBottomSheet = function() {  
    
     $rootScope.center = this.value;	
     $mdBottomSheet.show({
-      templateUrl: 'views/bottom_sheet/center.html'
+      templateUrl: 'views/bottom_sheet/center.html',
+      scope : $scope,
+      preserveScope : true
     })
     .then(function(){    	
     	 delete $rootScope.center;
+    	 $mdBottomSheet.hide();
     }, function(){
     	delete $rootScope.center;	
+    	$mdBottomSheet.hide();
     })
     ;
 
@@ -157,6 +166,7 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
 
    	    if(params.favorites)
    	    	{
+
    	    		$scope.values = $localStorage.get('favorites') || [];
    	    		return;
    	    	}
@@ -178,6 +188,8 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
 
    	   $localStorage.save('favorites',favorites);
 
+   	   $mdBottomSheet.hide();
+
    }
 
 
@@ -185,9 +197,19 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
 
    	   var favorites = $localStorage.get('favorites') || [];
 
+   	   console.log(favorites,'get');
+
    	   favorites.splice(favorites.indexOf($rootScope.center),1);
 
+   	   if(favorites.length > 0)
    	   $localStorage.save('favorites', favorites);
+   	   else
+   	   $localStorage.delete('favorites')
+
+   	   $scope.load({favorites:true})
+
+   	   $mdBottomSheet.hide();
+
 
    }
 

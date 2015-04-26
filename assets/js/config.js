@@ -5,9 +5,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
    $stateProvider
-    .state('elements', {
-      url: "/elements",
-      templateUrl: "views/elements.html",
+    .state('centers', {
+      url: "/centers",
+      templateUrl: "views/centers.html",
       controller : centersCtrl
     }) 
     .state('favorites', {
@@ -15,15 +15,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "views/favorites.html",
       controller : centersCtrl
     })    
-    .state('mapa', {
-  		url: "/mapa",
+    .state('map', {
+  		url: "/map",
       	templateUrl: "views/mapa.html",
       	controller : mapaController
     })
     ;
-
+     
  	 
- 	$urlRouterProvider.otherwise("/elements");
+ 	$urlRouterProvider.otherwise("/centers");
 
  });
 
@@ -34,4 +34,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
           }]);
 
 */
+
+
+app.run(function($rootScope, $mdSidenav, $mdBottomSheet, $state){
+
+	$rootScope.$on('$viewContentLoaded', 
+			function(event, toState, toParams, fromState, fromParams){ 			   	           
+
+				$rootScope.state = $state.current.name;
+			    		   
+
+			    $mdBottomSheet.hide();
+  				$mdSidenav("right").close();
+			 
+			});
+
+
+
+  
+
+	
+
+})
 

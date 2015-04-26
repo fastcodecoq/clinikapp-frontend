@@ -2,7 +2,11 @@ function localStorage(){
 
 		
 	this.get = function(key){
-		  return typeof value  === 'object' ? JSON.parse(window.localStorage[key]) : window.localStorage[key];
+		  
+		  if(window.localStorage[key])
+		  return window.localStorage[key].match('[{|}]') ? JSON.parse(window.localStorage[key]) : window.localStorage[key];
+		  else 
+		  return undefined;
 	}
 
 	this.save = function(key, value){

@@ -107,7 +107,10 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api) {
   
 
 
-  $scope.centerBottomSheet = function() {  	
+  $scope.centerBottomSheet = function() {  
+
+
+    $rootScope.center = this.value.name;	
     $mdBottomSheet.show({
       templateUrl: 'views/bottom_sheet/center.html'
     });

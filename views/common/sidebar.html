@@ -6,15 +6,26 @@
      
        <md-list>
           <md-list-item>
-               <md-button>Mis Citas</md-button>
+               <md-button>
+               <ng-md-icon icon="layers" style="fill:gray" ></ng-md-icon>                  
+               <span>
+               Mis Citas
+               </span>
+               </md-button>
           </md-list-item>
             <md-list-item>
-               <md-button>Buscar en Mapa</md-button>
+               <md-button>
+               <ng-md-icon icon="place" style="fill:gray" ></ng-md-icon>                                 
+               <span>Buscar en Mapa</span>
+               </md-button>
+          </md-list-item>
+          <md-list-item>
+           <md-button ng-click="menu_right()" class="md-primary">
+             Cerrar
+           </md-button>
           </md-list-item>
        </md-list>
 
-        <md-button ng-click="menu_right()" class="md-primary">
-          Cerrar
-        </md-button>
+       
       </md-content>
     </md-sidenav>

@@ -15,50 +15,60 @@ function mapaController($scope,  $mdBottomSheet, $api){
 	}
 }
 
-function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia){
+function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia, $rootScope){
 
 			 if(window.history.length > 0)
 			 	 $scope.back = true;
 	  		 
-	  		 $scope.todos = [];
-
-	  		 for(i = 0; i < 6; i++)
-	  		 	$scope.todos.push({
-				    face: 'assets/img/logo.png',
-				    what: 'Brunch this weekend?',
-				    who: 'Min Li Chan',
-				    notes: "I'll be in your neighborhood doing errands."
-	  			});
-
+	  		 
 		      	$scope.menu_right = function(){
 		        	$mdSidenav("right").toggle();
 		      	}
 
-			  	$scope.showAlert = function(ev) {
+			  	$rootScope.requetsAmbulance = function(ev) {
+
+			  		if(this.value)
+			  			 $rootScope.center = this.value;
+
+			  	var content = (!$rootScope.center) ? 
+			    	'Desea solicitar una ambulancia al centro de salud mas cercano?' :
+			    	'Desea solicitar una ambulancia a ' + $rootScope.center.name + ' mas cercano(a)? '  
+
 			   
 			    $mdDialog.show(
 			      $mdDialog.confirm()
 			        .title('Solicitar Ambulancia')
-			        .content('Desea solicitar una ambulancia al centro de salud mas cercano?')
+			        .content(content)
 			        .ariaLabel('Solicitar')
 			        .ok('Aceptar')	
 			        .cancel('Cancelar')		        
 			        .targetEvent(ev)
 			    )
-			    .then(function(){
+			    .then(function(){			    	
+
+			    	var content = (!$rootScope.center) ? 
+			    	'Se ha solicitado una ambulancia a su ubicación. Por favor mantenga su dispositivo móvil cerca mientras llega la ayuda médica.' :
+			    	'Se ha solicitado a ' + $rootScope.center.name + ' una ambulancia a su ubicación. Por favor mantenga su dispositivo móvil cerca mientras llega la ayuda médica.' 
+
 			    	$mdDialog.show(
 			    		$mdDialog.alert()
 			    		.title('Ambulancia Solicitada.')
-			    		.content('Se ha solicitado una ambulancia a su ubicación. Por favor mantenga su dispositivo móvil cerca mientras llega la ayuda médica.')
+			    		.content(content)
 			    		.ariaLabel('solicitada')
 			    		.ok('Ok')
 			    		)
+			    	.then(function(){
+			    		  delete $rootScope.center;
+			    	})
+
 			    }, function(){
 			        //
+
+			    		  delete $rootScope.center;
 			    })
 			    ;
 
-	       		};
+	       		};	   
 
      $scope.showAlertLeft = function(ev) {
 	    $mdDialog.show(
@@ -121,12 +131,18 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api) {
 
 
   $scope.centerBottomSheet = function() {  
-
-
-    $rootScope.center = this.value.name;	
+   
+    $rootScope.center = this.value;	
     $mdBottomSheet.show({
       templateUrl: 'views/bottom_sheet/center.html'
-    });
+    })
+    .then(function(){    	
+    	 delete $rootScope.center;
+    }, function(){
+    	delete $rootScope.center;	
+    })
+    ;
+
   };
 
 

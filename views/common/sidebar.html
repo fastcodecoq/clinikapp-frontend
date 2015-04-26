@@ -4,8 +4,8 @@
       </md-toolbar>
       <md-content  layout-padding>
      
-       <md-list>
-          <md-item layout="row">
+       <md-list flex>
+          <md-item layout="row" flex>
            <md-item-content flex>
                <md-button>
                <ng-md-icon icon="layers" style="fill:gray" ></ng-md-icon>                  
@@ -15,7 +15,7 @@
                </md-button>
                </md-item-content>
           </md-item>
-            <md-item layout="row" >
+            <md-item layout="row" flex>
            <md-item-content flex>
 
                <md-button>
@@ -25,7 +25,17 @@
                </md-item-content>
           </md-item>   
 
-           <md-item layout="row" >
+           <md-item layout="row" flex>
+           <md-item-content flex>
+
+               <md-button ng-click="requetsAmbulance()">
+               <ng-md-icon icon="directions_bus" style="fill:gray" ></ng-md-icon>                                 
+               <span>Solicitar Ambulancia</span>
+               </md-button>
+               </md-item-content>
+          </md-item>  
+
+          <md-item layout="row" flex>
            <md-item-content flex>
 
                <md-button>
@@ -35,7 +45,7 @@
                </md-item-content>
           </md-item>   
 
-          <md-item layout="row" hide-gt-sm>
+          <md-item layout="row" flex hide-gt-sm>
            <md-item-content flex>
                                                 
 

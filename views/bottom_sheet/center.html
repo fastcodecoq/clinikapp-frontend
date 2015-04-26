@@ -1,5 +1,5 @@
 <md-bottom-sheet class="md-list md-has-header">
-  <md-subheader><h2 style="text-transform:capitalize">{{$root.center}}</h2></md-subheader>
+  <md-subheader><h2 style="text-transform:capitalize">{{$root.center.name}}</h2></md-subheader>
   <md-list>
     
     <md-list-item >
@@ -10,9 +10,9 @@
     </md-list-item>
 
     <md-list-item >
-      <md-button class="md-list-item-content" ng-click="listItemClick($index)">
+      <md-button class="md-list-item-content" ng-click="$root.requetsAmbulance()">
         <ng-md-icon icon="directions_bus" style="fill:gray" ></ng-md-icon>        
-        <span class="md-inline-list-icon-label">Solicitar ambulancia a mi ubicación</span>
+        <span class="md-inline-list-icon-label">Solicitar Ambulancia</span>
       </md-button>
     </md-list-item>
 

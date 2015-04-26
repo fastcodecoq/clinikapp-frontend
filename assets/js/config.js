@@ -9,12 +9,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/elements",
       templateUrl: "views/elements.html",
       controller : centersCtrl
+    }) 
+    .state('favorites', {
+      url: "/favorites",
+      templateUrl: "views/favorites.html",
+      controller : centersCtrl
     })    
     .state('mapa', {
   		url: "/mapa",
       	templateUrl: "views/mapa.html",
       	controller : mapaController
-    });
+    })
+    ;
 
  	 
  	$urlRouterProvider.otherwise("/elements");

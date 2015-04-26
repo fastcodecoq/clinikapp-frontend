@@ -17,6 +17,11 @@ function mapaController($scope,  $mdBottomSheet, $api){
 
 function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia, $rootScope){
 
+
+			 $scope.$watch('search', function(){
+			 	alert('hey')
+			 })
+
 			 if(window.history.length > 0)
 			 	 $scope.back = true;
 	  		 
@@ -126,7 +131,7 @@ function entityCtrlBase($scope, $rootScope, $stateParams){
 
 
 
-function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api) {
+function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $localStorage) {
   
 
 
@@ -146,7 +151,15 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api) {
   };
 
 
-   $scope.load = function(){
+   $scope.load = function(params){
+
+   	var params = params || {};
+
+   	    if(params.favorites)
+   	    	{
+   	    		$scope.values = $localStorage.get('favorites') || [];
+   	    		return;
+   	    	}
 
    	      $api
 		   .centers()
@@ -155,6 +168,26 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api) {
 		   	   console.log(rs);
 		   	   $scope.values = rs.data;
 		   })
+
+   }
+
+   $scope.favorite = function(){
+
+   	   var favorites = $localStorage.get('favorites') || [];
+   	   favorites.push($rootScope.center);
+
+   	   $localStorage.save('favorites',favorites);
+
+   }
+
+
+   $scope.unfavorite = function(){
+
+   	   var favorites = $localStorage.get('favorites') || [];
+
+   	   favorites.splice(favorites.indexOf($rootScope.center),1);
+
+   	   $localStorage.save('favorites', favorites);
 
    }
 

@@ -1,9 +1,19 @@
 <md-toolbar layout="row" md-scroll-shrink>
       <div class="md-toolbar-tools">
-        <h2>
-          <span>Clinikapp</span>
-        </h2>
+        
+        <span ng-hide="$root.insearch" ui-sref="elements" class="noselect">
+        <h2 class="noselect md-title">  Clinikapp </h2>
+          </span>
+
+        <md-input-container ng-hide="!$root.insearch" autofocus>
+          <label style="color:white !important">Buscar...</label>
+          <input ng-model="search"   style="color:white">
+        </md-input-container>
+        
         <span flex></span>
+        <md-button class="md-icon-button menu-btn" aria-label="menu" ng-click="$root.insearch=!$root.insearch">
+         <ng-md-icon icon="search" style="fill:white;   top: 0;"  ></ng-md-icon>
+        </md-button>
         <md-button hide-gt-sm class="md-icon-button menu-btn" aria-label="menu" ng-click="menu_right()">
          <md-icon md-svg-icon="assets/icons/more_vert.svg"  style="color:white"></md-icon>
         </md-button>

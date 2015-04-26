@@ -1,9 +1,12 @@
 
 
-      <md-list ng-init="load()" >
+      <md-list ng-init="load({favorites:true})" >
 
+      <md-lis-item ng-if="values.length == 0">
+        <p>Vaya, parece que no tienes favoritos.</p>
+      </md-lis-item>    
 
-     <md-list-item class="md-3-line" md-swipe-right="requetsAmbulance()"  ng-repeat="value in values track by $index | filter:search" >
+     <md-list-item class="md-3-line" md-swipe-right="requetsAmbulance()"  ng-repeat="value in values track by $index" >
 
       <img  ng-src="{{ value.image || 'assets/img/logo.png' }}" class="md-avatar" />
       
@@ -12,7 +15,7 @@
           <h3>{{ value.name }}</h3>          
           <p class="p-aligned">{{ value.description }}</p>
         </div>
-    <md-button class="md-icon-button" ng-click="centerBottomSheet($ev)" aria-label="more-center" style="position: relative;
+    <md-button class="md-icon-button" ng-click="centerBottomSheet($ev)" style="position: relative;
 left: 25px;">
           <md-icon md-svg-icon="assets/icons/more_vert.svg"></md-icon>    
       </md-button>

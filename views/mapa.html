@@ -1,4 +1,6 @@
 <md-content ng-init="load()">
 	<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-  	<md-button ng-click="openBottomSheet()" style="position: absolute;bottom: 0px;background-color: red;float: right;right: 0px;margin: 30px;">Open</md-button>
+      <md-button ng-click="openBottomSheet()" class="md-icon-button md-accent" aria-label="Favorite" style="position: fixed;bottom: 0px;float: right;right: 0px;margin: 30px;">
+		<ng-md-icon icon="apps" style="fill:currentcolor" size="32"></ng-md-icon> 
+      </md-button>
 </md-content>

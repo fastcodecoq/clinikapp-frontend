@@ -1,4 +1,5 @@
 angular.module('clinikapp').factory('$geoFactory',['$q', function($q){
+
 	function _getPosition(_options){
 		var q = $q.defer();
         

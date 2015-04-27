@@ -21,9 +21,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller : citasCtrl
     })    
     .state('map', {
-  		url: "/map",
-      	templateUrl: "views/mapa.html",
-      	controller : mapaController
+      url: "/map",
+        templateUrl: "views/mapa.html",
+        controller : mapaController
+    })
+    .state('profile', {
+      url: "/profile",
+        templateUrl: "views/profile.html",
+        controller : centersCtrl
     })
    .state('call', {
       url: "/call",

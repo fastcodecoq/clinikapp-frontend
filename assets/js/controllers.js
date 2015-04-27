@@ -39,7 +39,7 @@ function mapaController($scope, $mdBottomSheet, $api, $gmap){
 	}
 }
 
-function mainCtrl($scope, $rootScope, $window, $mdDialog, $mdSidenav, $api, $mdMedia, $mdBottomSheet){
+function mainCtrl($scope, $rootScope, $window, $mdDialog, $mdSidenav, $api, $mdMedia, $mdBottomSheet, $state){
 
 
 			  $rootScope.alerta = function(data){
@@ -98,6 +98,7 @@ function mainCtrl($scope, $rootScope, $window, $mdDialog, $mdSidenav, $api, $mdM
 			    		.ok('Ok')
 			    		)
 			    	.then(function(){
+                    if(!$state.current.name.match('profile'))   				    		
 			    		  delete $rootScope.center;
 		        		  $mdSidenav("right").close();
 
@@ -105,7 +106,7 @@ function mainCtrl($scope, $rootScope, $window, $mdDialog, $mdSidenav, $api, $mdM
 
 			    }, function(){
 			        //
-
+         if(!$state.current.name.match('profile'))   	
 			    		  delete $rootScope.center;
 			    })
 			    ;
@@ -171,24 +172,28 @@ function entityCtrlBase($scope, $rootScope, $stateParams){
 
 
 
-function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $localStorage) {
+function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $localStorage, $gmap, $location, $state) {
   
    
 
 
   $scope.centerBottomSheet = function() {  
    
-    $rootScope.center = this.value;	
+    $rootScope.center = $rootScope.center || this.value;	
     $mdBottomSheet.show({
       templateUrl: 'views/bottom_sheet/center.html',
       scope : $scope,
       preserveScope : true
     })
-    .then(function(){    	
+    .then(function(){ 
+         if(!$state.current.name.match('profile'))   	
     	 delete $rootScope.center;
+
     	 $mdBottomSheet.hide();
     }, function(){
+         if(!$state.current.name.match('profile'))   	    	
     	delete $rootScope.center;	
+    	
     	$mdBottomSheet.hide();
     })
     ;
@@ -209,7 +214,7 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
    	    		return;
    	    	}
 
-   	    	
+
 
    	      $api
 		   .centers()
@@ -270,7 +275,8 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
 
 
    $scope.call = function(){
-             
+             if(!$rootScope.center)
+   	 	 $location.path('/centers').replace();
              console.log($rootScope.center)
              $scope.center = $rootScope.center;
 
@@ -285,6 +291,27 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
 
    	     return myfavorites.indexOf(this.value) != -1;
 
+   }
+
+   $scope.goToProfile = function(){
+
+   	    $rootScope.center = this.value;
+
+   	    $location.path('/profile').replace();
+
+   }
+
+   $scope.loadProfile = function(){
+
+   	 if(!$rootScope.center)
+   	 	 $location.path('/centers').replace();
+
+   	   $scope.center = $rootScope.center;
+
+   }
+
+   $scope.loadCenterMap = function(){   	
+   	  $gmap.load();
    }
 
 }

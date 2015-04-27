@@ -1,12 +1,14 @@
 
 
-      <md-list ng-init="load()" >
+      <md-list ng-init="load()" layout-padding>
 
-     <md-list-item class="md-3-line" md-swipe-right="requetsAmbulance()"  ng-repeat="value in values track by $index | filter:$root.search" >
+     <md-list-item class="md-3-line" md-swipe-right="requetsAmbulance()"  ng-repeat="value in values track by $index | filter:$root.search" aria-label="swipe">
 
-      <img  ng-src="{{ value.image || 'assets/img/logo.png' }}" class="md-avatar" />
+     
+
+      <img  ng-src="{{ value.image || 'assets/img/logo.png' }}" class="md-avatar" ng-click="goToProfile()" aria-label="profile">
       
-      <div class="md-list-item-text" ui-sref="mapa" >
+      <div class="md-list-item-text" flex  aria-label="profile" ng-click="goToProfile()">
           
           <h3>{{ value.name }}</h3>          
           <p class="p-aligned">{{ value.description.ellipsis() }}</p>
@@ -17,6 +19,7 @@
 left: 25px;">
           <md-icon md-svg-icon="assets/icons/more_vert.svg"></md-icon>    
       </md-button>
+      </div>
       </div>
       <!-- <div layout="row" ng-if="!isfavorite()">
            <md-button  class="md-icon-button" ng-click="favorite()" aria-label="more-center" style="position: relative;

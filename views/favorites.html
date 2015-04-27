@@ -1,5 +1,5 @@
 
-<div style="position:relative; height:97%">
+<div style="position:relative; height:95%" layout-padding>
       <md-list ng-init="load({favorites:true})" >
 
       <md-lis-item ng-if="values.length == 0">
@@ -10,9 +10,9 @@
 
      <md-list-item class="md-3-line" md-swipe-right="requetsAmbulance()"  ng-repeat="value in values track by $index" >
 
-      <img  ng-src="{{ value.image || 'assets/img/logo.png' }}" class="md-avatar" />
+      <img  ng-src="{{ value.image || 'assets/img/logo.png' }}" class="md-avatar" ng-click="goToProfile()"/>
       
-      <div class="md-list-item-text" ui-sref="mapa" >
+      <div class="md-list-item-text" ng-click="goToProfile()" >
           
           <h3>{{ value.name }}</h3>          
           <p class="p-aligned">{{ value.description }}</p>
@@ -27,7 +27,8 @@ left: 25px;">
      </md-list-item> 
       
     </md-list>
-    <md-button style="position:absolute; bottom:10px; right:10px;" class="md-fab md-default-theme" ui-sref="centers" >
+    <br>
+    <md-button style="position:fixed; bottom:10px; right:10px;" class="md-fab md-default-theme" ui-sref="centers" >
     <ng-md-icon icon="add" style="fill:white; top: 15px;"></ng-md-icon>
     </md-button>
     </div>

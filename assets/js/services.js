@@ -29,7 +29,7 @@ function localStorage(){
 function map(){
 
 	var map;
-	
+
 	this.load  = function(options){
 
 		var options = options || {};		
@@ -40,7 +40,8 @@ function map(){
 			  
 			  var options = {
 			    zoom: 8,
-			    center: new google.maps.LatLng(-34.397, 150.644)
+			    center: new google.maps.LatLng(-34.397, 150.644),
+			    panControl : false
 			  };
 
 
@@ -51,6 +52,15 @@ function map(){
 			}
 
 			initialize();
+
+
+	}
+
+
+	this.addmarker = function(coordinates){
+
+		//coordinates is a object  { lat: int , lng : int }
+
 
 
 	}

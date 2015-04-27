@@ -2,9 +2,7 @@ var app = angular.module('clinikapp', ['ngMaterial', 'ui.router', 'uiGmapgoogle-
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-
-
-   $stateProvider
+    $stateProvider
     .state('elements', {
       url: "/elements",
       templateUrl: "views/elements.html",
@@ -16,10 +14,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
       	controller : mapaController
     });
 
- 	 
- 	$urlRouterProvider.otherwise("/elements");
+    $urlRouterProvider.otherwise("/elements");
 
- });
+    });
 
 /*
     }, ['uiGmapGoogleMapApi', function(GoogleMapApiProviders){

@@ -3,10 +3,16 @@ var app = angular.module('clinikapp');
 
 function mapaController($scope,  $mdBottomSheet, $api){
 	$scope.map = { center: { latitude: 4.6093879, longitude: -74 }, zoom: 8 };
-	
-	$api.eps().get().success(function(rs){
-   		$scope.entities = rs.data || [];
-    })
+
+	$scope.load  = function(){
+		try{
+			$api.eps().get().success(function(rs){
+	   			$scope.entities = rs.data || [];
+	   		});
+		}catch(e){
+			console.log("undefined app entity", e);
+		}
+    }
 
 	$scope.openBottomSheet = function() {
 	    $mdBottomSheet.show({
@@ -131,6 +137,7 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api) {
 app
 .controller('mainCtrl', mainCtrl)
 .controller('entityCtrlBase', entityCtrlBase)
+.controller('mapaController', mapaController)
 ;
 
 

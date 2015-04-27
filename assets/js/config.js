@@ -35,6 +35,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: "views/call.html",
         controller : centersCtrl
     })
+   .state('form', {
+      url: "/form",
+        templateUrl: "views/form.html",
+        controller : centersCtrl
+    })
     ;
      
  	 

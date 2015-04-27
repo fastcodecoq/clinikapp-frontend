@@ -25,10 +25,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       	templateUrl: "views/mapa.html",
       	controller : mapaController
     })
+   .state('call', {
+      url: "/call",
+        templateUrl: "views/call.html",
+        controller : centersCtrl
+    })
     ;
      
  	 
- 	$urlRouterProvider.otherwise("/centers");
+ 	$urlRouterProvider.otherwise("/favorites");
 
  });
 

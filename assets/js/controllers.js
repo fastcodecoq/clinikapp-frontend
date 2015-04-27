@@ -175,6 +175,7 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
   
    
 
+
   $scope.centerBottomSheet = function() {  
    
     $rootScope.center = this.value;	
@@ -197,6 +198,8 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
 
    $scope.load = function(params){
 
+   
+
    	var params = params || {};
 
    	    if(params.favorites)
@@ -206,13 +209,16 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
    	    		return;
    	    	}
 
+   	    	$rootScope.insearch = true;
+
    	      $api
 		   .centers()
 		   .get()
 		   .success(function(rs){
 		   	   console.log(rs);
 		   	   $scope.values = rs.data;
-		   })
+
+		   });
 
    }
 
@@ -259,6 +265,14 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
    	   });
 ;
 
+
+   }
+
+
+   $scope.call = function(){
+             
+             console.log($rootScope.center)
+             $scope.center = $rootScope.center;
 
    }
 

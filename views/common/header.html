@@ -6,10 +6,10 @@
         </md-button>
 
         <span ng-hide="$root.insearch" flex= style="cursor:default" ui-sref="centers" class="noselect">
-        <h2 class="noselect md-title" style="cursor:default">  Clinikapp </h2>
+        <img src="assets/img/clinikapp.png" style="  width: 100%; max-width:150px; min-width:120px">
           </span>
 
-          <md-autocomplete layout="column" flex='66' ng-hide="!$root.insearch"
+          <md-autocomplete layout="column" flex='44' ng-hide="!$root.insearch"
 					ng-model="$root.search" 
 					placeholder="Buscar..."
 					md-selected-item="selectedItem" 
@@ -24,9 +24,12 @@
         <md-button class="md-icon-button menu-btn" aria-label="map" ui-sref="favorites">
          <ng-md-icon icon="favorite" style="fill:white; top:11px"  ></ng-md-icon>
         </md-button>
+
         <md-button class="md-icon-button menu-btn" aria-label="menu" ng-click="$root.insearch=!$root.insearch">
          <ng-md-icon icon="search" style="fill:white;   top: 0;"  ></ng-md-icon>
         </md-button>
+        
+
         <md-button hide-gt-sm class="md-icon-button menu-btn" aria-label="menu" ng-click="menu_right()">
          <md-icon md-svg-icon="assets/icons/more_vert.svg"  style="color:white"></md-icon>
         </md-button>

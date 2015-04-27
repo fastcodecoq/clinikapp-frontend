@@ -28,15 +28,15 @@ function localStorage(){
 
 function map(){
 
+	var map;
+	
 	this.load  = function(options){
 
-		var options = options || {};
-
-		var map;
+		var options = options || {};		
 		
 			
 			function initialize() {
-				
+
 			  
 			  var options = {
 			    zoom: 8,

@@ -1,12 +1,36 @@
 // controllers 
 var app = angular.module('clinikapp');
 
-function mapaController($scope,  $mdBottomSheet, $api){
+String.prototype.ellipsis = function(limit){
+
+	 var limit = limit || 50;
+	 
+	 var st = (this + '').substring(0,limit);
+	 var complete = '';
+
+	 if(this[limit] != ' ')
+	 	for(i=limit;i<this.length;i++)
+	 		if(this[i] != ' ')
+	 			complete += this[i];
+	 		else
+	 			break;
+	st = st + complete + '...';	 		
+
+	return st;
+
+}
+
+function mapaController($scope, $mdBottomSheet, $api, $gmap){
 	$scope.map = { center: { latitude: 4.6093879, longitude: -74 }, zoom: 8 };
 	
 	$api.eps().get().success(function(rs){
    		$scope.entities = rs.data || [];
-    })
+    });
+
+	$scope.load = function(){
+		
+		$gmap.load();
+	}
 
 	$scope.openBottomSheet = function() {
 	    $mdBottomSheet.show({
@@ -15,12 +39,23 @@ function mapaController($scope,  $mdBottomSheet, $api){
 	}
 }
 
-function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia, $rootScope, $mdBottomSheet){
+function mainCtrl($scope, $rootScope, $window, $mdDialog, $mdSidenav, $api, $mdMedia, $mdBottomSheet){
 
 
-			 $scope.$watch('search', function(){
-			 	console.log('watching')
-			 })
+			  $rootScope.alerta = function(data){
+
+			  		var data = data || {};
+
+			  		$mdDialog.show(
+			    		$mdDialog.alert()
+			    		.title(data.title || 'Mensaje')
+			    		.content(data.content || '')
+			    		.ariaLabel('alerta')
+			    		.ok(data.ok || 'Ok')
+			    		)
+
+			  }
+			
 
 			 if(window.history.length > 0)
 			 	 $scope.back = true;
@@ -48,7 +83,7 @@ function mainCtrl($scope, $mdDialog, $mdSidenav, $api, $mdMedia, $rootScope, $md
 			        .ok('Aceptar')	
 			        .cancel('Cancelar')		        
 			        .targetEvent(ev)
-			    )
+			    	)
 			    .then(function(){			    	
 
 			    	var content = (!$rootScope.center) ? 
@@ -138,7 +173,7 @@ function entityCtrlBase($scope, $rootScope, $stateParams){
 
 function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $localStorage) {
   
- 
+   
 
   $scope.centerBottomSheet = function() {  
    
@@ -184,11 +219,16 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
    $scope.favorite = function(){
 
    	   var favorites = $localStorage.get('favorites') || [];
-   	   favorites.push($rootScope.center);
+   	   favorites.push($rootScope.center || this.value);
 
-   	   $localStorage.save('favorites',favorites);
+   	   $localStorage.save('favorites',favorites);   	   
 
-   	   $mdBottomSheet.hide();
+   	   $mdBottomSheet.hide()
+   	   .then(function(){   	   	
+
+   	   	   $rootScope.alerta({title:'Nuevo Favorito',content:'Se añadió ' + ($rootScope.center.name || this.value.name ) + ' a tus favoritos.'})
+
+   	   });
 
    }
 
@@ -199,21 +239,75 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
 
    	   console.log(favorites,'get');
 
-   	   favorites.splice(favorites.indexOf($rootScope.center),1);
+   	   favorites.splice(favorites.indexOf($rootScope.center || this.value),1);
 
    	   if(favorites.length > 0)
    	   $localStorage.save('favorites', favorites);
    	   else
    	   $localStorage.delete('favorites')
 
+   	 if($rootScope.center)
    	   $scope.load({favorites:true})
+   	else
+   		$scope.load();
 
-   	   $mdBottomSheet.hide();
+   	   $mdBottomSheet.hide()
+   	   .then(function(){   	   	
+
+   	   	   $rootScope.alerta({title:'Favorito Eliminado',content:'Se quitó ' + ($rootScope.center.name || this.value.name ) + ' de tus favoritos.'})
+
+   	   });
+;
 
 
    }
 
+
+   $scope.isfavorite = function(){
+
+        var myfavorites = $localStorage.get('favorites') || [];  
+
+     	console.log(myfavorites.indexOf(this.value));
+
+   	     return myfavorites.indexOf(this.value) != -1;
+
+   }
+
 }
+
+
+
+function citasCtrl($scope, $rootScope, $stateParams){
+
+   $scope.load = function(id){
+
+   	  $scope.values = [];
+
+   }
+
+   $scope.create = function(data){
+
+   	  var data = data || $scope;
+
+   }
+
+   $scope.update = function(id){
+
+   	  var id = id || $scope.id;
+
+
+   }
+
+   $scope.delete = function(id){
+
+   	  var id = id || $scope.id;
+
+
+   }
+}
+
+
+
 
 app
 .controller('mainCtrl', mainCtrl)

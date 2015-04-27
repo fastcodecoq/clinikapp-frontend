@@ -14,7 +14,7 @@
 
     <div ng-include="'views/common/header.html'"></div>  
 
-<div layout="row" flex class="content-wrapper">
+<div layout="row" flex class="content-wrapper" ng-click="$root.insearch=false">
 
    <div layout="column" flex>
     <md-content layout-padding class="md-default-theme" style="height: 87%;" ui-view></md-content>
@@ -23,8 +23,7 @@
    <div layout="column">
 
    <div ng-include="'views/common/sidebar.html'"></div>
-
-</div>
+   </div>
 
    </div>
 
@@ -39,9 +38,13 @@
     <script src='assets/libs/lodash/dist/lodash.min.js'></script>
     <script src='assets/libs/angular-google-maps/dist/angular-google-maps.min.js'></script>
     <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script type="text/javascript"
+  src="http://maps.googleapis.com/maps/api/js?libraries=geometry">
+</script>
     <script src="assets/js/config.js"></script>
     <script src="assets/js/api_service.js"></script>
     <script src="assets/js/services.js"></script>
     <script src="assets/js/controllers.js"></script>
+
   </body>
 </html>

@@ -14,6 +14,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/favorites",
       templateUrl: "views/favorites.html",
       controller : centersCtrl
+    })   
+    .state('citas', {
+      url: "/citas",
+      templateUrl: "views/citas.html",
+      controller : citasCtrl
     })    
     .state('map', {
   		url: "/map",
@@ -39,9 +44,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 app.run(function($rootScope, $mdSidenav, $mdBottomSheet, $state){
 
 	$rootScope.$on('$viewContentLoaded', 
-			function(event, toState, toParams, fromState, fromParams){ 			   	           
+			function(event, toState, toParams, fromState, fromParams){ 	
 
-				$rootScope.state = $state.current.name;
+        console.log($state);		   	           
+
+
+				 $rootScope.state = $state.current.name;
 			    		   
 
 			    $mdBottomSheet.hide();
@@ -49,9 +57,26 @@ app.run(function($rootScope, $mdSidenav, $mdBottomSheet, $state){
 			 
 			});
 
+ $rootScope.backcounter = 0;
+
+  $rootScope.$on('$stateChangeSuccess', 
+              function(event, toState, toParams, fromState, fromParams){ 
+                
+              $rootScope.back = fromState.name != '' && toState.name != '' ? true : false;                  
+              $rootScope.backcounter++;
+
+               console.log($rootScope.back, 'back')
+
+           });
 
 
-  
+
+    $rootScope.goback = function(){
+      window.history.back();
+      $rootScope.backcounter--;
+      if($rootScope.backcounter === 0)
+         $rootScope.back = false;
+    }
 
 	
 

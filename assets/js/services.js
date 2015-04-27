@@ -26,6 +26,42 @@ function localStorage(){
 
 
 
+function map(){
+
+	this.load  = function(options){
+
+		var options = options || {};
+
+		var map;
+		
+			
+			function initialize() {
+				
+			  
+			  var options = {
+			    zoom: 8,
+			    center: new google.maps.LatLng(-34.397, 150.644)
+			  };
+
+
+			  //hay que extender el objeto options aqui
+
+			  map = new google.maps.Map(document.getElementById(options.mapcontainerid || 'map'),
+			      options);
+			}
+
+			initialize();
+
+
+	}
+
+	return this;
+
+}
+
+
+
 angular.module('clinikapp')
        .factory('$localStorage', localStorage)
+       .factory('$gmap', map)
        ;

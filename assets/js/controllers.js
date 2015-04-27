@@ -1,10 +1,17 @@
 // controllers 
 var app = angular.module('clinikapp');
 
-function mapaController($scope,  $mdBottomSheet, $api){
-	$scope.map = { center: { latitude: 4.6093879, longitude: -74 }, zoom: 8 };
+function mapaController($scope,  $mdBottomSheet, uiGmapGoogleMapApi, $api, $geoFactory){
 
 	$scope.load  = function(){
+		$geoFactory.getPosition().then(function(myPosition){
+			$scope.map = { center: { latitude:myPosition.coords.latitude, longitude: myPosition.coords.longitude }, zoom: 8 };
+		});
+
+		uiGmapGoogleMapApi.then(function(map){
+			console.log($geoFactory);
+		});
+
 		try{
 			$api.eps().get().success(function(rs){
 	   			$scope.entities = rs.data || [];
@@ -63,17 +70,8 @@ function mainCtrl($scope, $mdDialog, $mdSidenav, $api){
 	        .targetEvent(ev)
 	    );
     };
-
-
-    
-
-
-
 }
 
-
-
-	
 
 function entityCtrlBase($scope, $rootScope, $stateParams){
 

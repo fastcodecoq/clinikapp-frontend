@@ -209,7 +209,7 @@ function centersCtrl($scope, $rootScope, $mdBottomSheet, $stateParams, $api, $lo
    	    		return;
    	    	}
 
-   	    	$rootScope.insearch = true;
+   	    	
 
    	      $api
 		   .centers()

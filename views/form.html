@@ -1,0 +1,52 @@
+<section>
+    <div layout="row">
+    	<md-content layout-padding flex>
+            <h1 class="md-display-2">COLSANITAS</h1>
+            <h2 class="md-display-1">Solicitar Cita</h2>
+
+            <form>
+              <md-input-container flex>
+                <label>Nombre Paciente Completo *</label>
+                <input ng-model="form.full_name">
+              </md-input-container>
+              <md-input-container flex>
+                <label>No. Documento *</label>
+                <input ng-model="form.no_documento">
+              </md-input-container>
+              <md-input-container flex>
+                <label>Fecha de Cita *</label>
+                <input type="date" ng-model="form.date">
+              </md-input-container>
+
+              <md-content layout="row" flex>
+              <md-select ng-model="form.dpto_medico" placeholder="Dpto. Médico *" flex>
+                    <md-option>Dpto. Médico</md-option>
+                    <md-option>Dpto. Médico</md-option>
+                    <md-option>Dpto. Médico</md-option>
+                    <md-option>Dpto. Médico</md-option>
+                    <md-option>Dpto. Médico</md-option>
+                </md-select>
+              </md-content layout="row">
+
+              <md-content layout="row" flex>
+                <md-select ng-model="form.medico" placeholder="Médico" flex>
+                    <md-option>Médico</md-option>
+                    <md-option>Médico</md-option>
+                    <md-option>Médico</md-option>
+                    <md-option>Médico</md-option>
+                    <md-option>Médico</md-option>
+                </md-select>
+             </md-content layout="row">
+              <md-input-container flex>
+                <label>Sintomas que presenta *</label>
+                <textarea ng-model="form.sintomas" columns="1" md-maxlength="200"></textarea>
+              </md-input-container>
+              <md-content layout="row" flex layout-align="end center">
+                <md-button class="md-raised md-primary">Solicitar</md-button>
+              </md-content>
+            </form>
+          </md-content>
+
+    </div>
+
+</section>
